@@ -9,7 +9,7 @@ var (
 	Exit      string
 	Answer    float32
 	Factorial float32 = 1
-	i         float32
+	i         float32 = 1
 )
 
 func main() {
@@ -60,8 +60,8 @@ func check1() {
 
 func check2() {
 	if Sign == "!" {
-		for ; i < num1; i++ {
-			Factorial *= num1
+		for ; i <= num1; i++ {
+			Factorial *= i
 		}
 		fmt.Println("Ответ:", Factorial)
 	}

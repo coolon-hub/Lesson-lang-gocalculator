@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"time"
+)
 
 var (
 	num1      float32
@@ -13,18 +16,34 @@ var (
 )
 
 func main() {
-
+	fmt.Print("\033[H\033[2J")
+	load()
 	for {
 		menu()
-		if Exit == "Нет" || Exit == "нет" {
+		/* if Exit == "Нет" || Exit == "нет" {
+			menu()
+		}  else*/if Exit == "Да" || Exit == "да" {
 			break
-		}
+		} /*else {
+			fmt.Print("\033[H\033[2J")
+			fmt.Println("Вы вели не правильные данные, попробуйте ещё раз.")
+			exitf()
+		}*/
 	}
 
 	fmt.Print("\033[H\033[2J")
 	fmt.Println("Всего доброго, Пользователь!")
 }
 
+func load() {
+	for time1 := 1; time1 <= 30; time1++ {
+		for time2 := 1; time2 <= 3; time2++ {
+			fmt.Print(".")
+			time.Sleep(300 * time.Millisecond)
+		}
+		fmt.Print("\033[H\033[2J")
+	}
+}
 func menu() {
 	fmt.Print("\033[H\033[2J")
 	fmt.Println("Добро пожаловать в калькулятор, Пользователь!!")
@@ -72,6 +91,6 @@ func number2() {
 	fmt.Scan(&num2)
 }
 func exitf() {
-	fmt.Print("Хотите продолжить?:")
+	fmt.Print("Хотите закончить?:")
 	fmt.Scan(&Exit)
 }

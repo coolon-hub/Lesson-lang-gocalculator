@@ -3,11 +3,13 @@ package main
 import "fmt"
 
 var (
-	num1   float32
-	Sign   string
-	num2   float32
-	Exit   string
-	Answer float32
+	num1      float32
+	Sign      string
+	num2      float32
+	Exit      string
+	Answer    float32
+	Factorial float32 = 1
+	i         float32
 )
 
 func main() {
@@ -35,29 +37,40 @@ func menu() {
 
 func check1() {
 	if Sign == "+" {
-		fmt.Print("Введите второе число:")
-		fmt.Scan(&num2)
+		number2()
 		Answer = num1 + num2
 		fmt.Println("Ответ:", Answer)
 	} else if Sign == "-" {
-		fmt.Print("Введите второе число:")
-		fmt.Scan(&num2)
+		number2()
 		Answer = num1 - num2
 		fmt.Println("Ответ:", Answer)
 	} else if Sign == "*" {
-		fmt.Print("Введите второе число:")
-		fmt.Scan(&num2)
+		number2()
 		Answer = num1 * num2
 		fmt.Println("Ответ:", Answer)
 	} else if Sign == "/" {
-		fmt.Print("Введите второе число:")
-		fmt.Scan(&num2)
+		number2()
 		Answer = num1 / num2
 		fmt.Println("Ответ:", Answer)
+	} else {
+		check2()
 	}
 	exitf()
 }
 
+func check2() {
+	if Sign == "!" {
+		for ; i < num1; i++ {
+			Factorial *= num1
+		}
+		fmt.Println("Ответ:", Factorial)
+	}
+}
+
+func number2() {
+	fmt.Print("Введите второе число:")
+	fmt.Scan(&num2)
+}
 func exitf() {
 	fmt.Print("Хотите продолжить?:")
 	fmt.Scan(&Exit)
